@@ -1,0 +1,608 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* CONTROLES RESPONSIVE */
+.controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    max-width: 150px;
+}
+
+.music-toggle, .photos-toggle {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.music-toggle:hover, .photos-toggle:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* COLLAGE RESPONSIVE */
+.photos-collage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.photos-collage.active {
+    opacity: 0.7;
+}
+
+.photo-frame {
+    position: absolute;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+    transition: all 0.5s ease;
+    animation: floatPhoto 20s infinite ease-in-out;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Posiciones para desktop */
+.photo-1 {
+    width: 180px; height: 120px; top: 10%; left: 5%; transform: rotate(-5deg);
+}
+.photo-2 {
+    width: 160px; height: 200px; top: 15%; right: 8%; transform: rotate(3deg);
+}
+.photo-3 {
+    width: 200px; height: 150px; top: 50%; left: 8%; transform: rotate(-2deg);
+}
+.photo-4 {
+    width: 170px; height: 170px; bottom: 15%; right: 10%; transform: rotate(4deg);
+}
+.photo-5 {
+    width: 190px; height: 140px; top: 25%; left: 50%; transform: translateX(-50%) rotate(-3deg);
+}
+.photo-6 {
+    width: 150px; height: 190px; bottom: 20%; left: 15%; transform: rotate(2deg);
+}
+
+@keyframes floatPhoto {
+    0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+    50% { transform: translateY(-15px) rotate(var(--rotation, 0deg)); }
+}
+
+/* CORAZONES RESPONSIVE */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #e74c3c;
+    transform: rotate(45deg);
+    opacity: 0.7;
+    animation: float 8s infinite ease-in-out;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #e74c3c;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -7.5px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: -7.5px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-15px) rotate(45deg); }
+}
+
+/* TULIPANES RESPONSIVE */
+.tulip {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    width: 60px;
+    height: 120px;
+}
+
+.tulip-1 { left: 5%; }
+.tulip-2 { left: 20%; }
+.tulip-3 { left: 35%; }
+.tulip-4 { left: 65%; }
+.tulip-5 { left: 80%; }
+.tulip-6 { left: 95%; }
+
+.stem {
+    width: 5px;
+    height: 120px;
+    background: linear-gradient(to top, #1e8449, #27ae60);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 2px 2px 0 0;
+}
+
+.tulip-leaf {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: #2ecc71;
+    border-radius: 0 50% 50% 0;
+    z-index: 0;
+}
+
+.tulip-leaf-left {
+    left: -15px;
+    bottom: 40px;
+    transform: rotate(-25deg);
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.tulip-leaf-right {
+    right: -15px;
+    bottom: 25px;
+    transform: rotate(25deg) scaleX(-1);
+    background: linear-gradient(225deg, #27ae60, #2ecc71);
+}
+
+.flower {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 45px;
+    height: 45px;
+}
+
+.petal {
+    width: 25px;
+    height: 35px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.petal-left {
+    transform: rotate(-30deg);
+    left: -3px;
+    top: 3px;
+}
+
+.petal-center {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    top: 0;
+}
+
+.petal-right {
+    transform: rotate(30deg);
+    right: -3px;
+    top: 3px;
+}
+
+.flower::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #f1c40f;
+    border-radius: 50%;
+    z-index: 4;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+/* SOBRE RESPONSIVE */
+.envelope {
+    position: relative;
+    width: 250px;
+    height: 170px;
+    background: #e74c3c;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    z-index: 10;
+    margin-top: 30px;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 85px solid #c0392b;
+    z-index: 2;
+}
+
+.envelope-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: white;
+    z-index: 3;
+}
+
+.envelope-heart:before,
+.envelope-heart:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+}
+
+.envelope-heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.envelope-heart:after {
+    top: 0;
+    left: -15px;
+}
+
+.message {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    z-index: 3;
+    font-size: 0.9rem;
+}
+
+/* CARTA RESPONSIVE */
+.letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    opacity: 0;
+    transition: all 0.5s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.letter.open {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.letter-content h3 {
+    text-align: center;
+    color: #e74c3c;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.cursive {
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.letter-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.letter-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* MEDIA QUERIES PARA CELULARES */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .controls {
+        top: 5px;
+        right: 5px;
+        padding: 8px;
+        gap: 6px;
+        max-width: 130px;
+    }
+    
+    .music-toggle, .photos-toggle {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    /* Fotos más pequeñas en móvil */
+    .photo-1, .photo-2, .photo-3, 
+    .photo-4, .photo-5, .photo-6 {
+        width: 100px !important;
+        height: 80px !important;
+    }
+    
+    .photo-1 { top: 5%; left: 2%; }
+    .photo-2 { top: 10%; right: 2%; }
+    .photo-3 { top: 40%; left: 2%; }
+    .photo-4 { bottom: 10%; right: 2%; }
+    .photo-5 { top: 15%; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+    .photo-6 { bottom: 15%; left: 2%; }
+    
+    /* Tulipanes más compactos */
+    .tulip {
+        width: 50px;
+        height: 100px;
+    }
+    
+    .tulip-1 { left: 2%; }
+    .tulip-2 { left: 18%; }
+    .tulip-3 { left: 34%; }
+    .tulip-4 { left: 66%; }
+    .tulip-5 { left: 82%; }
+    .tulip-6 { left: 98%; }
+    
+    .stem {
+        height: 100px;
+        width: 4px;
+    }
+    
+    .flower {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .petal {
+        width: 20px;
+        height: 28px;
+    }
+    
+    .tulip-leaf {
+        width: 15px;
+        height: 25px;
+    }
+    
+    .tulip-leaf-left {
+        left: -12px;
+        bottom: 35px;
+    }
+    
+    .tulip-leaf-right {
+        right: -12px;
+        bottom: 20px;
+    }
+    
+    /* Sobre más pequeño */
+    .envelope {
+        width: 200px;
+        height: 140px;
+        margin-top: 20px;
+    }
+    
+    .envelope:before {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-top: 70px solid #c0392b;
+    }
+    
+    .envelope-heart {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .envelope-heart:before,
+    .envelope-heart:after {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .envelope-heart:before {
+        top: -12.5px;
+    }
+    
+    .envelope-heart:after {
+        left: -12.5px;
+    }
+    
+    .message {
+        font-size: 0.8rem;
+        bottom: 12px;
+    }
+    
+    /* Carta más compacta */
+    .letter {
+        width: 95%;
+        padding: 15px;
+        max-height: 90vh;
+    }
+    
+    .letter-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .cursive {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+    
+    .signature {
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    .controls {
+        top: 15px;
+        right: 15px;
+        max-width: 140px;
+    }
+    
+    .photo-frame {
+        width: 140px !important;
+        height: 100px !important;
+    }
+    
+    .envelope {
+        width: 280px;
+        height: 190px;
+    }
+    
+    .envelope:before {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        border-top: 95px solid #c0392b;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .controls {
+        top: 20px;
+        right: 20px;
+        max-width: 150px;
+    }
+}
+
+/* Orientación horizontal en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .tulip {
+        height: 80px;
+    }
+    
+    .stem {
+        height: 80px;
+    }
+    
+    .flower {
+        top: -10px;
+    }
+    
+    .envelope {
+        margin-top: 10px;
+        width: 180px;
+        height: 120px;
+    }
+    
+    .envelope:before {
+        border-left: 90px solid transparent;
+        border-right: 90px solid transparent;
+        border-top: 60px solid #c0392b;
+    }
+    
+    .letter {
+        max-height: 95vh;
+        padding: 15px;
+    }
+    
+    .controls {
+        flex-direction: row;
+        max-width: none;
+        top: 5px;
+        right: 5px;
+    }
+}

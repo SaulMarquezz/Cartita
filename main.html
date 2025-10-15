@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Sizel<3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <button class="music-toggle" onclick="toggleMusic()">Música</button>
+        <button class="photos-toggle" onclick="togglePhotos()">Mostrar Fotos</button>
+    </div>
+    
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Collage de fotos -->
+    <div class="photos-collage" id="photosCollage">
+        <!-- Fotos-->
+        <div class="photo-frame photo-1">
+            <img src="imagen.jpg" alt="Nuestra foto 1">
+        </div>
+        <div class="photo-frame photo-2">
+            <img src="imagen2.jpg" alt="Nuestra foto 2">
+        </div>
+        <div class="photo-frame photo-3">
+            <img src="imagen3.jpg" alt="Nuestra foto 3">
+        </div>
+        <div class="photo-frame photo-4">
+            <img src="imagen4.jpg" alt="Nuestra foto 4">
+        </div>
+        <div class="photo-frame photo-5">
+            <img src="imagen5.jpeg" alt="Nuestra foto 5">
+        </div>
+    </div>
+    
+    <!-- Tulipanes -->
+    <div class="tulip tulip-1">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+    <div class="tulip tulip-2">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+    <div class="tulip tulip-3">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+    <div class="tulip tulip-4">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+    <div class="tulip tulip-5">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+    <div class="tulip tulip-6">
+        <div class="stem"></div>
+        <div class="tulip-leaf tulip-leaf-left"></div>
+        <div class="tulip-leaf tulip-leaf-right"></div>
+        <div class="flower">
+            <div class="petal petal-left"></div>
+            <div class="petal petal-center"></div>
+            <div class="petal petal-right"></div>
+        </div>
+    </div>
+
+    <!-- Sobre -->
+    <div class="envelope" id="envelope">
+        <div class="envelope-heart"></div>
+        <div class="message" id="clickMessage">Abre la Carta</div>
+    </div>
+
+    <!-- Carta -->
+    <div class="letter-backdrop" id="letterBackdrop"></div>
+    <div class="letter" id="letter">
+        <div class="letter-content">
+            <h3>Para mi gordita 💕</h3>
+            <p class="cursive">Gordita,</p>
+            <p class="cursive">
+                Cada día a tu lado es un regalo hermoso. Eres la luz que ilumina mis días 
+                y la razón de mi felicidad.
+            </p>
+            <p class="cursive">
+                Los tiempos de dios son perfectos y solo el sabe porque pasan las cosas, 
+                espero en dios que se sigan dando las cosas y que sigamos siendo nosotros.
+            </p>
+            <p class="signature cursive">
+                Te amo más de lo que las palabras pueden expresar.<br>
+                Con cariño, tu gordito.
+            </p>
+        </div>
+    </div>
+
+    <!-- Musica -->
+    <audio id="backgroundMusic" loop>
+        <source src="Justin Bieber - Off My Face (Visualizer).mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
