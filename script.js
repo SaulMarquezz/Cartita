@@ -39,7 +39,7 @@ function toggleMusic() {
 function togglePhotos() {
     photosVisible = !photosVisible;
     photosCollage.classList.toggle('active');
-    document.querySelector('.photos-toggle').textContent = photosVisible ? '👁️ Ocultar Fotos' : '🖼️ Mostrar Fotos';
+    document.querySelector('.photos-toggle').textContent = photosVisible ? 'Ocultar Fotos' : '🖼️ Mostrar Fotos';
 }
 
 // Control de la carta - ABRIR
