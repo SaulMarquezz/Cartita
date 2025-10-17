@@ -56,7 +56,7 @@ function closeLetter() {
     document.getElementById('clickMessage').textContent = '¡Abre la Carta!';
 }
 
-// Control de la carta - TOGGLE
+// Control de la carta 
 function toggleLetter() {
     if (letter.classList.contains('open')) {
         closeLetter();
